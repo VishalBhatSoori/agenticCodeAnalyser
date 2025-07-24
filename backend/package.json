@@ -5,34 +5,19 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon"
+    "dev": "nodemon -L server.js"
+  },
+  "nodemonConfig": {
+    "legacyWatch": true
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@google/genai": "^1.6.0",
-    "dotenv": "^16.5.0",
+    "@google/genai": "^1.10.0",
+    "@google/generative-ai": "^0.24.1",
+    "dotenv": "^17.2.0",
     "express": "^5.1.0",
-    "together-ai": "^0.16.0"
-  },
-  "nodemonConfig": {
-    "watch": [
-      "server.js",
-      "routes",
-      "controllers",
-      "models"
-    ],
-    "ignore": [
-      "node_modules",
-      "frontend",
-      "build",
-      "dist",
-      "*.log",
-      "uploads",
-      ".git",
-      ".env"
-    ],
-    "exec": "node server.js"
+    "together-ai": "^0.20.0"
   }
 }

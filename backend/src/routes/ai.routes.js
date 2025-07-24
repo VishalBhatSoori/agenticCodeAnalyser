@@ -1,7 +1,9 @@
-import {Router} from 'express';
-import userPrompt from '../controllers/ai.controllers.js';
+import express from 'express';
+import {controllerGetPrompt } from '../controllers/ai.controller.js';
 
-const aiRouter=Router();
-aiRouter.get("/get-input",userPrompt);
+const router = express.Router();
 
-export {aiRouter}
+router.get('/get-prompt',controllerGetPrompt);
+
+export default router;
+

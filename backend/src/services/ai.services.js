@@ -7,7 +7,7 @@ const client = new Together({
   apiKey: process.env.Together_API_KEY, // This is the default and can be omitted
 });
 
-async function main(prompt) {
+async function generateFromPrompt(prompt) {
   console.log('Input:', prompt);
   const response  = await client.chat.completions.create({
     messages: [{role: 'user', content: prompt}],
@@ -17,4 +17,4 @@ async function main(prompt) {
   return response.choices[0].message.content;
 }
 
-export default main;
+export  {generateFromPrompt};
