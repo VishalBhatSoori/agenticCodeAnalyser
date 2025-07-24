@@ -1,20 +1,20 @@
-import dotenv from'dotenv';
-import Together from 'together-ai'
+import dotenv from 'dotenv';
+import { GoogleGenAI } from '@google/genai';
 
 dotenv.config();
 
-const client = new Together({
-  apiKey: process.env.Together_API_KEY, // This is the default and can be omitted
+const ai = new GoogleGenAI({
+  apiKey: process.env.GEMINI_API_KEY,
 });
 
 async function generateFromPrompt(prompt) {
   console.log('Input:', prompt);
-  const response  = await client.chat.completions.create({
-    messages: [{role: 'user', content: prompt}],
-    model: 'mistralai/Mixtral-8x7B-Instruct-v0.1',
+  const response = await ai.models.generateContent({
+    model: 'gemini-2.5-pro',  // or 'gemini-2.5-pro' if you have access
+    contents: prompt,
   });
 
-  return response.choices[0].message.content;
+  return response.text;
 }
 
-export  {generateFromPrompt};
+export { generateFromPrompt };
