@@ -1,9 +1,9 @@
 import express from 'express';
-import {controllerGetPrompt } from '../controllers/ai.controller.js';
+import {controllerPostCode } from '../controllers/ai.controller.js';
 
 const router = express.Router();
 
-router.get('/get-prompt',controllerGetPrompt);
+router.post('/post-code',controllerPostCode);
 
 export default router;
 
